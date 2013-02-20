@@ -52,8 +52,14 @@ public class DoLockActivity extends Activity {
 			policyManager = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
 			componentName = new ComponentName(DoLockActivity.this,
 					LockReceiver.class);
-			policyManager.lockNow();// 直接锁屏
-			android.os.Process.killProcess(android.os.Process.myPid());
+//			policyManager.lockNow();// 直接锁屏
+//			android.os.Process.killProcess(android.os.Process.myPid());
+			 while (true)
+		      {
+				 policyManager.lockNow();
+				 android.os.Process.killProcess(android.os.Process.myPid());
+		        return;
+		      }
 		} else {
 			activeManager();// 激活设备管理器获取权限
 		}
@@ -80,6 +86,7 @@ public class DoLockActivity extends Activity {
 		if (policyManager.isAdminActive(componentName)) {
 			policyManager.lockNow();
 			android.os.Process.killProcess(android.os.Process.myPid());
+			finish(); 
 		}
 		super.onResume();
 	}
