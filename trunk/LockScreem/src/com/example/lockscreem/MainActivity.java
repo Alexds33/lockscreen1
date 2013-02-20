@@ -1,5 +1,7 @@
 package com.example.lockscreem;
 
+import net.youmi.android.AdManager;
+import net.youmi.android.AdView;
 import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -13,12 +15,14 @@ import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -47,9 +51,9 @@ public class MainActivity extends Activity {
 	Boolean isShowNotification;
 	int songNum;
 
-	private static final String[] musicName = { "音效1", "音效2" };
+	private static final String[] musicName = { "音效1", "音效2","音效3","音效4","音效5","音效6","音效7" };
 
-	static final int[] music = { R.raw.classic, R.raw.office };
+	static final int[] music = { R.raw.classic, R.raw.office, R.raw.office, R.raw.office, R.raw.office, R.raw.office, R.raw.office, };
 
 	// private Animation scale_animation;
 
@@ -57,6 +61,8 @@ public class MainActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		adYouMi();//有米
 
 		initView();
 
@@ -312,6 +318,15 @@ public class MainActivity extends Activity {
 		sendBroadcast(shortcut);
 	}
 
+	private void adYouMi() {
+		// 应用 Id 应用密码 广告请求间隔 (s) 设置测试模式 [false 为发布模式 ]
+		AdManager.init(this,"178f73366c471d40", "1b42bfc082f3bd19", 30, true);
+		LinearLayout adViewLayout = (LinearLayout) findViewById(R.id.adViewLayout);
+		adViewLayout.addView(new AdView(this),
+		new LayoutParams(LinearLayout.LayoutParams.FILL_PARENT,
+		LinearLayout.LayoutParams.WRAP_CONTENT));
+	}
+	
 
 
 }

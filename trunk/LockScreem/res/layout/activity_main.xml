@@ -33,7 +33,6 @@
         android:layout_marginTop="5dp"
         android:background="#000000"
         android:orientation="vertical" >
-
     </LinearLayout>
 
     <RelativeLayout
@@ -41,24 +40,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/LinearLayout01"
-        android:paddingLeft="10dp" 
-        android:paddingRight="10dp">
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" >
 
         <CheckBox
             android:id="@+id/ckb_show_on_tittlebar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#000000"
-            android:text="添加桌面快捷方式" />
+            android:text="添加桌面快捷方式"
+            android:textColor="#000000" />
     </RelativeLayout>
 
     <Button
         android:id="@+id/btn_set_done"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:textColor="#000000"
-        android:text="确定" />
+        android:layout_above="@+id/adViewLayout"
+        android:text="确定"
+        android:textColor="#000000" />
 
     <LinearLayout
         android:id="@+id/LinearLayout02"
@@ -68,17 +67,16 @@
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginTop="5dp"
-        android:background="#000000"
-         >
+        android:background="#000000" >
     </LinearLayout>
 
     <RelativeLayout
         android:id="@+id/relativeLayout2"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="10dp" 
-        android:paddingRight="10dp"
-        android:layout_below="@+id/LinearLayout02" >
+        android:layout_below="@+id/LinearLayout02"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" >
 
         <CheckBox
             android:id="@+id/ckb_is_play_music"
@@ -100,18 +98,17 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
             android:layout_below="@+id/spinner_music"
-            android:textColor="#000000"
-            android:text="试听" />
-
+            android:text="试听"
+            android:textColor="#000000" />
     </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/LinearLayout03"
         android:layout_width="fill_parent"
         android:layout_height="1dp"
-       android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
         android:layout_below="@+id/relativeLayout2"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:background="#000000" >
     </LinearLayout>
 
@@ -119,16 +116,15 @@
         android:id="@+id/relativeLayout3"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="10dp" 
-        android:layout_below="@+id/LinearLayout03" >
+        android:layout_below="@+id/LinearLayout03"
+        android:paddingLeft="10dp" >
 
         <CheckBox
             android:id="@+id/ckb_is_shake"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#000000"
-            android:text="锁屏振动" />
-
+            android:text="锁屏振动"
+            android:textColor="#000000" />
     </RelativeLayout>
 
     <LinearLayout
@@ -138,8 +134,7 @@
         android:layout_below="@+id/relativeLayout3"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:background="#000000"
-         >
+        android:background="#000000" >
     </LinearLayout>
 
     <TextView
@@ -148,9 +143,9 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/LinearLayout04"
         android:layout_below="@+id/LinearLayout04"
-        android:textColor="#ffffff"
         android:layout_marginTop="5dp"
-        android:text="重要提示：本程序锁屏时需要激活设备管理器 ，点击“完成设置”，在弹出的激活对话框中点击激活即可使用。如要卸载本程序，先点击下面“取消激活”，然后可正常卸载" />
+        android:text="重要提示：本程序锁屏时需要激活设备管理器 ，点击“完成设置”，在弹出的激活对话框中点击激活即可使用。如要卸载本程序，先点击下面“取消激活”，然后可正常卸载"
+        android:textColor="#ffffff" />
 
     <Button
         android:id="@+id/btn_cancle"
@@ -159,7 +154,16 @@
         android:layout_alignRight="@+id/LinearLayout04"
         android:layout_below="@+id/textView3"
         android:layout_marginTop="5dp"
-        android:textColor="#000000"
-        android:text="取消激活" />
+        android:text="取消激活"
+        android:textColor="#000000" />
+
+    <!-- adViewLayout 为广告条容器 -->
+
+    <LinearLayout
+        android:id="@+id/adViewLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" 
+        android:layout_alignParentBottom="true">
+    </LinearLayout>
 
 </RelativeLayout>

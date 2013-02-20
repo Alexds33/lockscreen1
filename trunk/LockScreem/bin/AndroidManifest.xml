@@ -12,7 +12,7 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@android:style/Theme.NoTitleBar">
+        android:theme="@android:style/Theme.NoTitleBar" >
         <activity
             android:name="com.example.lockscreem.MainActivity"
             android:label="@string/app_name"
@@ -36,8 +36,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
-        <service android:enabled="true" android:name="com.example.lockscreem.music" /> 
+        <!-- 有米 -->
+        <activity
+            android:name="net.youmi.android.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation" />
+
+        <receiver android:name="net.youmi.android.YoumiReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_INSTALL" />
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.example.lockscreem.music"
+            android:enabled="true" />
 
         <receiver
             android:name=".LockReceiver"
@@ -52,11 +66,24 @@
                 <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
             </intent-filter>
         </receiver>
-
     </application>
 
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />  
-<uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" />  
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" />
+    <uses-permission android:name="android.permission.INTERNET" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" >
+    </uses-permission>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" >
+        <uses-permissio>
+        </uses-permissio>
+    </uses-permission>
 
 </manifest>
