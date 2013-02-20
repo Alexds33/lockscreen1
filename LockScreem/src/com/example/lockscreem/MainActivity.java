@@ -320,7 +320,7 @@ public class MainActivity extends Activity {
 
 	private void adYouMi() {
 		// 应用 Id 应用密码 广告请求间隔 (s) 设置测试模式 [false 为发布模式 ]
-		AdManager.init(this,"178f73366c471d40", "1b42bfc082f3bd19", 30, true);
+		AdManager.init(this,"178f73366c471d40", "1b42bfc082f3bd19", 30, false);
 		LinearLayout adViewLayout = (LinearLayout) findViewById(R.id.adViewLayout);
 		adViewLayout.addView(new AdView(this),
 		new LayoutParams(LinearLayout.LayoutParams.FILL_PARENT,
