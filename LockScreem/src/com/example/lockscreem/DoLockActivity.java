@@ -33,21 +33,24 @@ public class DoLockActivity extends Activity {
 		System.out.println("songNum:  " + songNum);
 		System.out.println("musicID:  " + musicID);
 
-		// 音效
-		if (isPlayMusic) {
-			// PlayerVoid();
-			startService(new Intent(DoLockActivity.this, music.class));
-		}
-
-		// 振动
-		if (isShake) {
-			TipHelper.Vibrate(DoLockActivity.this, 500);
-		}
+		
 
 		policyManager = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
 		componentName = new ComponentName(DoLockActivity.this,
 				LockReceiver.class);
 		if (policyManager.isAdminActive(componentName)) {
+			
+			// 音效
+			if (isPlayMusic) {
+				// PlayerVoid();
+				startService(new Intent(DoLockActivity.this, music.class));
+			}
+
+			// 振动
+			if (isShake) {
+				TipHelper.Vibrate(DoLockActivity.this, 500);
+			}
+			
 			// 判断是否有权限(激活了设备管理器)
 			policyManager = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
 			componentName = new ComponentName(DoLockActivity.this,
@@ -97,6 +100,7 @@ public class DoLockActivity extends Activity {
 		intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, componentName);
 		intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION, "一键锁屏");
 		startActivity(intent);
+		DoLockActivity.this.finish();
 	}
 
 	private void initView() {

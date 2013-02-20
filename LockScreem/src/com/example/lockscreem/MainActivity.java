@@ -25,7 +25,7 @@ import android.widget.Toast;
 public class MainActivity extends Activity {
 	private DevicePolicyManager policyManager;
 	private ComponentName componentName;
-	private Button btn_Animation;
+	private Button btn_SetDone;
 	private Button btn_PlayMusic;
 	private Button btn_cancle;
 	private int musicID;
@@ -68,7 +68,7 @@ public class MainActivity extends Activity {
 		ckb_isPlayMusic = (CheckBox) findViewById(R.id.ckb_is_play_music);
 		ckb_isShake = (CheckBox) findViewById(R.id.ckb_is_shake);
 		spin_musicName = (Spinner) findViewById(R.id.spinner_music);
-		btn_Animation = (Button) findViewById(R.id.btn_set_done);
+		btn_SetDone = (Button) findViewById(R.id.btn_set_done);
 		btn_PlayMusic = (Button) findViewById(R.id.btn_playmusic);
 		btn_cancle = (Button) findViewById(R.id.btn_cancle);
 
@@ -148,8 +148,8 @@ public class MainActivity extends Activity {
 					}
 				});
 
-		// 激活
-		btn_Animation.setOnClickListener(new Button.OnClickListener() {
+		// 完成设置
+		btn_SetDone.setOnClickListener(new Button.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				initView();
@@ -168,11 +168,21 @@ public class MainActivity extends Activity {
 					Toast.makeText(MainActivity.this,
 							"程序已激活，退出设置后点击“快捷锁屏”图标关闭屏幕", Toast.LENGTH_SHORT)
 							.show();
-					// policyManager.lockNow();// 直接锁屏
-					// android.os.Process.killProcess(android.os.Process.myPid());
 				} else {
 					activeManager();// 激活设备管理器获取权限
 				}
+				
+				new Thread(){
+					public void run() {
+						try {
+							sleep(500);
+							MainActivity.this.finish();
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+					};
+				}.start();
+				
 
 			}
 		});
@@ -198,7 +208,7 @@ public class MainActivity extends Activity {
 							Toast.LENGTH_SHORT).show();
 				} else {
 					Toast.makeText(MainActivity.this,
-							"程序还未激活，请点击下面“完成设置”或直接点击“快捷锁屏”图标激活使用",
+							"程序还未激活，请点击下面“确定”或直接点击“快捷锁屏”图标激活使用",
 							Toast.LENGTH_SHORT).show();
 				}
 			}
