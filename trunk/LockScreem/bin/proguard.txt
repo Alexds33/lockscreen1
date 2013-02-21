@@ -1,0 +1,18 @@
+# view AndroidManifest.xml #generated:27
+-keep class com.example.lockscreem.DoLockActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:56
+-keep class com.example.lockscreem.LockReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:16
+-keep class com.example.lockscreem.MainActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:52
+-keep class com.example.lockscreem.music { <init>(...); }
+
+# view AndroidManifest.xml #generated:40
+-keep class net.youmi.android.AdActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:44
+-keep class net.youmi.android.YoumiReceiver { <init>(...); }
+
