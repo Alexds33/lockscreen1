@@ -4,5 +4,6 @@
 	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry kind="lib" path="D:/Desktop/广告/有米/youmi-android-sdk-_2012-09-19/lib/youmi-android_v3.08_2012-09-18.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
