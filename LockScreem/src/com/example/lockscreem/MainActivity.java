@@ -51,9 +51,9 @@ public class MainActivity extends Activity {
 	Boolean isShowNotification;
 	int songNum;
 
-	private static final String[] musicName = { "音效1", "音效2","音效3","音效4","音效5","音效6","音效7" };
+	private static final String[] musicName = { "音效1", "音效2","音效3","音效4","音效5","音效6","音效7", "音效8", "音效9", "音效10", "音效11", "音效12", "音效13" };
 
-	static final int[] music = { R.raw.classic, R.raw.office, R.raw.office, R.raw.office, R.raw.office, R.raw.office, R.raw.office, };
+	static final int[] music = { R.raw.lock1, R.raw.lock2, R.raw.lock3, R.raw.lock4, R.raw.lock5, R.raw.lock6, R.raw.lock7, R.raw.lock8, R.raw.lock9, R.raw.lock10, R.raw.lock11, R.raw.lock12, R.raw.lock13};
 
 	// private Animation scale_animation;
 
