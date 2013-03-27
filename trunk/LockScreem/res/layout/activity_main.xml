@@ -144,7 +144,7 @@
         android:layout_alignLeft="@+id/LinearLayout04"
         android:layout_below="@+id/LinearLayout04"
         android:layout_marginTop="5dp"
-        android:text="重要提示：本程序锁屏时需要激活设备管理器 ，点击“完成设置”，在弹出的激活对话框中点击激活即可使用。如要卸载本程序，先点击下面“取消激活”，然后可正常卸载"
+        android:text="重要提示：本程序锁屏时需要激活设备管理器 ，点击“完成设置”，在弹出的激活对话框中点击激活即可使用。如要卸载本程序，先点击下面“确定”，然后可正常卸载"
         android:textColor="#ffffff" />
 
     <Button
