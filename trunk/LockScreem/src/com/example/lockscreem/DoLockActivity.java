@@ -40,22 +40,22 @@ public class DoLockActivity extends Activity {
 				LockReceiver.class);
 		if (policyManager.isAdminActive(componentName)) {
 			
-			// ÒôĞ§
+			// éŸ³æ•ˆ
 			if (isPlayMusic) {
 				// PlayerVoid();
 				startService(new Intent(DoLockActivity.this, music.class));
 			}
 
-			// Õñ¶¯
+			// æŒ¯åŠ¨
 			if (isShake) {
 				TipHelper.Vibrate(DoLockActivity.this, 500);
 			}
 			
-			// ÅĞ¶ÏÊÇ·ñÓĞÈ¨ÏŞ(¼¤»îÁËÉè±¸¹ÜÀíÆ÷)
+			// åˆ¤æ–­æ˜¯å¦æœ‰æƒé™(æ¿€æ´»äº†è®¾å¤‡ç®¡ç†å™¨)
 			policyManager = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
 			componentName = new ComponentName(DoLockActivity.this,
 					LockReceiver.class);
-//			policyManager.lockNow();// Ö±½ÓËøÆÁ
+//			policyManager.lockNow();// ç›´æ¥é”å±
 //			android.os.Process.killProcess(android.os.Process.myPid());
 			 while (true)
 		      {
@@ -64,7 +64,7 @@ public class DoLockActivity extends Activity {
 		        return;
 		      }
 		} else {
-			activeManager();// ¼¤»îÉè±¸¹ÜÀíÆ÷»ñÈ¡È¨ÏŞ
+			activeManager();// æ¿€æ´»è®¾å¤‡ç®¡ç†å™¨è·å–æƒé™
 		}
 	}
 
@@ -72,7 +72,7 @@ public class DoLockActivity extends Activity {
 		startService(new Intent(DoLockActivity.this, music.class));
 	}
 
-	// ÊÍ·Å²¥·ÅÆ÷×ÊÔ´
+	// é‡Šæ”¾æ’­æ”¾å™¨èµ„æº
 	private void releaseMediaPlayer() {
 		stopService(new Intent(DoLockActivity.this, music.class));
 	}
@@ -95,10 +95,10 @@ public class DoLockActivity extends Activity {
 	}
 
 	private void activeManager() {
-		// Ê¹ÓÃÒşÊ½ÒâÍ¼µ÷ÓÃÏµÍ³·½·¨À´¼¤»îÖ¸¶¨µÄÉè±¸¹ÜÀíÆ÷
+		// ä½¿ç”¨éšå¼æ„å›¾è°ƒç”¨ç³»ç»Ÿæ–¹æ³•æ¥æ¿€æ´»æŒ‡å®šçš„è®¾å¤‡ç®¡ç†å™¨
 		Intent intent = new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
 		intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, componentName);
-		intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION, "Ò»¼üËøÆÁ");
+		intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION, "ä¸€é”®é”å±");
 		startActivity(intent);
 		DoLockActivity.this.finish();
 	}

@@ -13,13 +13,13 @@ public class LockReceiver extends DeviceAdminReceiver {
 
 	@Override
 	public void onEnabled(Context context, Intent intent) {
-		System.out.println("¼¤»îÊ¹ÓÃ");
+		System.out.println("æ¿€æ´»ä½¿ç”¨");
 		super.onEnabled(context, intent);
 	}
 
 	@Override
 	public void onDisabled(Context context, Intent intent) {
-		System.out.println("È¡Ïû¼¤»î");
+		System.out.println("å–æ¶ˆæ¿€æ´»");
 		super.onDisabled(context, intent);
 	}
 }

@@ -39,11 +39,11 @@ public class MainActivity extends Activity {
 	private CheckBox ckb_isShake;
 	private Spinner spin_musicName;
 
-	// ÉùÃ÷Í¨Öª£¨ÏûÏ¢£©¹ÜÀíÆ÷
+	// å£°æ˜é€šçŸ¥ï¼ˆæ¶ˆæ¯ï¼‰ç®¡ç†å™¨
 	NotificationManager m_NotificationManager;
 	Intent m_Intent;
 	PendingIntent m_PendingIntent;
-	// ÉùÃ÷Notification¶ÔÏó
+	// å£°æ˜Notificationå¯¹è±¡
 	Notification m_Notification;
 
 	Boolean isShake;
@@ -51,7 +51,7 @@ public class MainActivity extends Activity {
 	Boolean isShowNotification;
 	int songNum;
 
-	private static final String[] musicName = { "ÒôĞ§1", "ÒôĞ§2","ÒôĞ§3","ÒôĞ§4","ÒôĞ§5","ÒôĞ§6","ÒôĞ§7", "ÒôĞ§8", "ÒôĞ§9", "ÒôĞ§10", "ÒôĞ§11", "ÒôĞ§12", "ÒôĞ§13" };
+	private static final String[] musicName = { "éŸ³æ•ˆ1", "éŸ³æ•ˆ2","éŸ³æ•ˆ3","éŸ³æ•ˆ4","éŸ³æ•ˆ5","éŸ³æ•ˆ6","éŸ³æ•ˆ7", "éŸ³æ•ˆ8", "éŸ³æ•ˆ9", "éŸ³æ•ˆ10", "éŸ³æ•ˆ11", "éŸ³æ•ˆ12", "éŸ³æ•ˆ13" };
 
 	static final int[] music = { R.raw.lock1, R.raw.lock2, R.raw.lock3, R.raw.lock4, R.raw.lock5, R.raw.lock6, R.raw.lock7, R.raw.lock8, R.raw.lock9, R.raw.lock10, R.raw.lock11, R.raw.lock12, R.raw.lock13};
 
@@ -62,7 +62,7 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		adYouMi();//ÓĞÃ×
+		adYouMi();//æœ‰ç±³
 
 		initView();
 
@@ -78,7 +78,7 @@ public class MainActivity extends Activity {
 		btn_PlayMusic = (Button) findViewById(R.id.btn_playmusic);
 		btn_cancle = (Button) findViewById(R.id.btn_cancle);
 
-		// ÉèÖÃÒôĞ§ÊÇ·ñ¿Éµã»÷
+		// è®¾ç½®éŸ³æ•ˆæ˜¯å¦å¯ç‚¹å‡»
 		spin_musicName.setClickable(isPlayMusic);
 		btn_PlayMusic.setEnabled(isPlayMusic);
 
@@ -104,7 +104,7 @@ public class MainActivity extends Activity {
 			ckb_isPlayMusic.setChecked(isPlayMusic);
 		}
 
-		// ÊÇ·ñÔÚ×ÀÃæÏÔÊ¾¿ì½İ·½Ê½
+		// æ˜¯å¦åœ¨æ¡Œé¢æ˜¾ç¤ºå¿«æ·æ–¹å¼
 		ckb_showOnNotification
 				.setOnCheckedChangeListener(new CheckBox.OnCheckedChangeListener() {
 
@@ -124,7 +124,7 @@ public class MainActivity extends Activity {
 
 					}
 				});
-		// ÊÇ·ñ²¥·ÅÒôĞ§
+		// æ˜¯å¦æ’­æ”¾éŸ³æ•ˆ
 		ckb_isPlayMusic
 				.setOnCheckedChangeListener(new CheckBox.OnCheckedChangeListener() {
 					@Override
@@ -140,7 +140,7 @@ public class MainActivity extends Activity {
 					}
 				});
 
-		// ÊÇ·ñÕñ¶¯
+		// æ˜¯å¦æŒ¯åŠ¨
 		ckb_isShake
 				.setOnCheckedChangeListener(new CheckBox.OnCheckedChangeListener() {
 					@Override
@@ -154,28 +154,28 @@ public class MainActivity extends Activity {
 					}
 				});
 
-		// Íê³ÉÉèÖÃ
+		// å®Œæˆè®¾ç½®
 		btn_SetDone.setOnClickListener(new Button.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				initView();
-				// Õñ¶¯
+				// æŒ¯åŠ¨
 				// if (isShake) {
 				// TipHelper.Vibrate(MainActivity.this, 100);
 				// }
-				// // ÒôĞ§
+				// // éŸ³æ•ˆ
 				// if (isPlayMusic) {
 				// PlayerVoid();
 				// }
 				policyManager = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
 				componentName = new ComponentName(MainActivity.this,
 						LockReceiver.class);
-				if (policyManager.isAdminActive(componentName)) {// ÅĞ¶ÏÊÇ·ñÓĞÈ¨ÏŞ(¼¤»îÁËÉè±¸¹ÜÀíÆ÷)
+				if (policyManager.isAdminActive(componentName)) {// åˆ¤æ–­æ˜¯å¦æœ‰æƒé™(æ¿€æ´»äº†è®¾å¤‡ç®¡ç†å™¨)
 					Toast.makeText(MainActivity.this,
-							"³ÌĞòÒÑ¼¤»î£¬ÍË³öÉèÖÃºóµã»÷¡°¿ì½İËøÆÁ¡±Í¼±ê¹Ø±ÕÆÁÄ»", Toast.LENGTH_SHORT)
+							"ç¨‹åºå·²æ¿€æ´»ï¼Œé€€å‡ºè®¾ç½®åç‚¹å‡»â€œå¿«æ·é”å±â€å›¾æ ‡å…³é—­å±å¹•", Toast.LENGTH_SHORT)
 							.show();
 				} else {
-					activeManager();// ¼¤»îÉè±¸¹ÜÀíÆ÷»ñÈ¡È¨ÏŞ
+					activeManager();// æ¿€æ´»è®¾å¤‡ç®¡ç†å™¨è·å–æƒé™
 				}
 				
 				new Thread(){
@@ -193,7 +193,7 @@ public class MainActivity extends Activity {
 			}
 		});
 
-		// ÊÔÌıÒôĞ§
+		// è¯•å¬éŸ³æ•ˆ
 		btn_PlayMusic.setOnClickListener(new Button.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -201,7 +201,7 @@ public class MainActivity extends Activity {
 			}
 		});
 
-		// È¡Ïû¼¤»î
+		// å–æ¶ˆæ¿€æ´»
 		btn_cancle.setOnClickListener(new Button.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -210,11 +210,11 @@ public class MainActivity extends Activity {
 						LockReceiver.class);
 				if (policyManager.isAdminActive(componentName)) {
 					policyManager.removeActiveAdmin(componentName);
-					Toast.makeText(MainActivity.this, "È¡Ïû¼¤»î³É¹¦£¬ÏÖÔÚÄã¿ÉÒÔ½«³ÌĞò´ÓÊÖ»úÉÏÒÆ³ıÁË",
+					Toast.makeText(MainActivity.this, "å–æ¶ˆæ¿€æ´»æˆåŠŸï¼Œç°åœ¨ä½ å¯ä»¥å°†ç¨‹åºä»æ‰‹æœºä¸Šç§»é™¤äº†",
 							Toast.LENGTH_SHORT).show();
 				} else {
 					Toast.makeText(MainActivity.this,
-							"³ÌĞò»¹Î´¼¤»î£¬Çëµã»÷ÏÂÃæ¡°È·¶¨¡±»òÖ±½Óµã»÷¡°¿ì½İËøÆÁ¡±Í¼±ê¼¤»îÊ¹ÓÃ",
+							"ç¨‹åºè¿˜æœªæ¿€æ´»ï¼Œè¯·ç‚¹å‡»ä¸‹é¢â€œç¡®å®šâ€æˆ–ç›´æ¥ç‚¹å‡»â€œå¿«æ·é”å±â€å›¾æ ‡æ¿€æ´»ä½¿ç”¨",
 							Toast.LENGTH_SHORT).show();
 				}
 			}
@@ -222,7 +222,7 @@ public class MainActivity extends Activity {
 
 	}
 
-	// ÒôÀÖÑ¡Ôñ
+	// éŸ³ä¹é€‰æ‹©
 	class SpinnerSelectedListener implements OnItemSelectedListener {
 		public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2,
 				long arg3) {
@@ -239,7 +239,7 @@ public class MainActivity extends Activity {
 
 	@Override
 	protected void onResume() {
-		// ÖØĞ´´Ë·½·¨ÓÃÀ´ÔÚµÚÒ»´Î¼¤»îÉè±¸¹ÜÀíÆ÷Ö®ºóËø¶¨ÆÁÄ»
+		// é‡å†™æ­¤æ–¹æ³•ç”¨æ¥åœ¨ç¬¬ä¸€æ¬¡æ¿€æ´»è®¾å¤‡ç®¡ç†å™¨ä¹‹åé”å®šå±å¹•
 		// if (policyManager.isAdminActive(componentName)) {
 		// policyManager.lockNow();
 		// android.os.Process.killProcess(android.os.Process.myPid());
@@ -248,10 +248,10 @@ public class MainActivity extends Activity {
 	}
 
 	private void activeManager() {
-		// Ê¹ÓÃÒşÊ½ÒâÍ¼µ÷ÓÃÏµÍ³·½·¨À´¼¤»îÖ¸¶¨µÄÉè±¸¹ÜÀíÆ÷
+		// ä½¿ç”¨éšå¼æ„å›¾è°ƒç”¨ç³»ç»Ÿæ–¹æ³•æ¥æ¿€æ´»æŒ‡å®šçš„è®¾å¤‡ç®¡ç†å™¨
 		Intent intent = new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
 		intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, componentName);
-		intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION, "Ò»¼üËøÆÁ");
+		intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION, "ä¸€é”®é”å±");
 		startActivity(intent);
 	}
 
@@ -259,7 +259,7 @@ public class MainActivity extends Activity {
 		startService(new Intent(MainActivity.this, music.class));
 	}
 
-	// ÊÍ·Å²¥·ÅÆ÷×ÊÔ´
+	// é‡Šæ”¾æ’­æ”¾å™¨èµ„æº
 	private void releaseMediaPlayer() {
 		stopService(new Intent(MainActivity.this, music.class));
 	}
@@ -271,12 +271,12 @@ public class MainActivity extends Activity {
 		releaseMediaPlayer();
 	}
 
-	/** ÉèÖÃ */
+	/** è®¾ç½® */
 	private void showNotification() {
 		addShortcut();
 	}
 
-	/** È¡Ïû */
+	/** å–æ¶ˆ */
 	private void cancelNotification() {
 //		delShortcut();
 	}
@@ -291,18 +291,18 @@ public class MainActivity extends Activity {
 	}
 
 	/**
-	 * Îª³ÌĞò´´½¨×ÀÃæ¿ì½İ·½Ê½
+	 * ä¸ºç¨‹åºåˆ›å»ºæ¡Œé¢å¿«æ·æ–¹å¼
 	 */
 	private void addShortcut() {
 		Intent shortcut = new Intent(
 				"com.android.launcher.action.INSTALL_SHORTCUT");
-		// ¿ì½İ·½Ê½µÄÃû³Æ
+		// å¿«æ·æ–¹å¼çš„åç§°
 		shortcut.putExtra(Intent.EXTRA_SHORTCUT_NAME,
 				getString(R.string.dolock));
-		shortcut.putExtra("duplicate", false); // ²»ÔÊĞíÖØ¸´´´½¨
+		shortcut.putExtra("duplicate", false); // ä¸å…è®¸é‡å¤åˆ›å»º
 
-		// Ö¸¶¨µ±Ç°µÄActivityÎª¿ì½İ·½Ê½Æô¶¯µÄ¶ÔÏó: Èç //com.everest.video.VideoPlayer
-		// ×¢Òâ: ComponentNameµÄµÚ¶ş¸ö²ÎÊı±ØĞë¼ÓÉÏµãºÅ(.)£¬·ñÔò¿ì½İ·½Ê½ÎŞ·¨Æô¶¯ÏàÓ¦³ÌĞò
+		// æŒ‡å®šå½“å‰çš„Activityä¸ºå¿«æ·æ–¹å¼å¯åŠ¨çš„å¯¹è±¡: å¦‚ //com.everest.video.VideoPlayer
+		// æ³¨æ„: ComponentNameçš„ç¬¬äºŒä¸ªå‚æ•°å¿…é¡»åŠ ä¸Šç‚¹å·(.)ï¼Œå¦åˆ™å¿«æ·æ–¹å¼æ— æ³•å¯åŠ¨ç›¸åº”ç¨‹åº
 		// ComponentName comp = new ComponentName(this.getPackageName(),
 		// "."+DoLockActivity.class.getName());
 		// shortcut.putExtra(Intent.EXTRA_SHORTCUT_INTENT, new Intent(
@@ -311,7 +311,7 @@ public class MainActivity extends Activity {
 		Intent shortcutIntent = new Intent(Intent.ACTION_MAIN);
 		shortcutIntent.setClassName(this, DoLockActivity.class.getName());
 		shortcut.putExtra(Intent.EXTRA_SHORTCUT_INTENT, shortcutIntent);
-		// ¿ì½İ·½Ê½µÄÍ¼±ê
+		// å¿«æ·æ–¹å¼çš„å›¾æ ‡
 		ShortcutIconResource iconRes = Intent.ShortcutIconResource.fromContext(
 				this, R.drawable.dolock);
 		shortcut.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE, iconRes);
@@ -319,7 +319,7 @@ public class MainActivity extends Activity {
 	}
 
 	private void adYouMi() {
-		// Ó¦ÓÃ Id Ó¦ÓÃÃÜÂë ¹ã¸æÇëÇó¼ä¸ô (s) ÉèÖÃ²âÊÔÄ£Ê½ [false Îª·¢²¼Ä£Ê½ ]
+		// åº”ç”¨ Id åº”ç”¨å¯†ç  å¹¿å‘Šè¯·æ±‚é—´éš” (s) è®¾ç½®æµ‹è¯•æ¨¡å¼ [false ä¸ºå‘å¸ƒæ¨¡å¼ ]
 		AdManager.init(this,"178f73366c471d40", "1b42bfc082f3bd19", 30, false);
 		LinearLayout adViewLayout = (LinearLayout) findViewById(R.id.adViewLayout);
 		adViewLayout.addView(new AdView(this),
