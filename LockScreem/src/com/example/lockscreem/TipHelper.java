@@ -7,9 +7,9 @@ import android.os.Vibrator;
 
 public class TipHelper {
 	  /**
-	   * 手机振动
+	   * 鎵嬫満鎸姩
 	   * @param activity
-	   * @param milliseconds 振动时间 MS
+	   * @param milliseconds 鎸姩鏃堕棿 MS
 	   */
 		  public static void Vibrate(final Activity activity, long milliseconds) {
 		   Vibrator vib = (Vibrator) activity.getSystemService(Service.VIBRATOR_SERVICE);
